@@ -1,9 +1,11 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.mapper;
 
+import org.springframework.stereotype.Service;
+
 import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.BaseProductResponse;
 import com.touresBalon.b2c.B2Cbusinesscapabilities.entities.Product;
 import com.touresBalon.b2c.B2Cbusinesscapabilities.interfaces.IProductMapper;
-
+@Service
 public class ProductMapper implements IProductMapper {
 
 	@Override

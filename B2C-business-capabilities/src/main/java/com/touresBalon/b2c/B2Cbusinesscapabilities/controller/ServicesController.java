@@ -17,7 +17,7 @@ import com.touresBalon.b2c.B2Cbusinesscapabilities.interfaces.IProductService;
 
 @RefreshScope
 @RestController
-@RequestMapping("${b2c.endpoint.base}")
+@RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class ServicesController {
 

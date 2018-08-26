@@ -2,10 +2,12 @@ package com.touresBalon.b2c.B2Cbusinesscapabilities.consumer;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.FindProductRequest;
 import com.touresBalon.b2c.B2Cbusinesscapabilities.entities.Product;
 import com.touresBalon.b2c.B2Cbusinesscapabilities.interfaces.IProductConsumer;
-
+@Component
 public class ProductBDConsumer implements IProductConsumer{
 
 	@Override
