@@ -1,37 +1,36 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.controller;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.BaseProductResponse;
+import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.FindProductRequest;
+import com.touresBalon.b2c.B2Cbusinesscapabilities.interfaces.IProductService;
 
 @RefreshScope
 @RestController
-@RequestMapping("${adl.endpoint.base}")
-@CrossOrigin(origins = "*", exposedHeaders ="dato1, dato2" )
+@RequestMapping("${b2c.endpoint.base}")
+@CrossOrigin(origins = "*")
 public class ServicesController {
 
-//  @Autowired private Interfaz interfaz;
+  @Autowired private IProductService productService;
 	
-//	este es la clase que recibe 
-
   @RequestMapping(
-      value = "/getProducts",
+      value = "/getProduct",
       method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Object> metodo(String parametros) {
-	  return null;
+  public ResponseEntity<BaseProductResponse> getProduct( @RequestBody FindProductRequest findProductRequest) {
+	  BaseProductResponse productResponse =
+			  productService.findProductById(findProductRequest);
+		    return new ResponseEntity<>(productResponse, HttpStatus.OK);
   }
 
 }
