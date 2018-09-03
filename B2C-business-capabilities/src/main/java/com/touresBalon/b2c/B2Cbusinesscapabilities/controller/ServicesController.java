@@ -32,5 +32,18 @@ public class ServicesController {
 			  productService.findProductById(findProductRequest);
 		    return new ResponseEntity<>(productResponse, HttpStatus.OK);
   }
+  
+//  public @ResponseBody ResponseEntity<Object> getAll() {
+//      List<Entity> entityList = entityManager.findAll();
+//
+//      List<JSONObject> entities = new ArrayList<JSONObject>();
+//      for (Entity n : entityList) {
+//          JSONObject Entity = new JSONObject();
+//          entity.put("id", n.getId());
+//          entity.put("address", n.getAddress());
+//          entities.add(entity);
+//      }
+//      return new ResponseEntity<Object>(entities, HttpStatus.OK);
+//  }
 
 }
