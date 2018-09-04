@@ -1,10 +1,7 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
@@ -39,6 +36,7 @@ public class ServicesController {
 		    return new ResponseEntity<>(productResponse, HttpStatus.OK);
   }
   
+
   @RequestMapping(
 	      value = "/getProductList",
 	      method = RequestMethod.POST,
@@ -49,5 +47,5 @@ public @ResponseBody ResponseEntity<Object> getAll()  {
 }
  
   
-  
+
 }
