@@ -1,5 +1,10 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.BaseProductResponse;
@@ -32,5 +38,16 @@ public class ServicesController {
 			  productService.findProductById(findProductRequest);
 		    return new ResponseEntity<>(productResponse, HttpStatus.OK);
   }
-
+  
+  @RequestMapping(
+	      value = "/getProductList",
+	      method = RequestMethod.POST,
+	      produces = MediaType.APPLICATION_JSON_VALUE)
+public @ResponseBody ResponseEntity<Object> getAll()  {
+	List<BaseProductResponse> productResponse = productService.findAllProducts();
+	return new ResponseEntity<Object>(productResponse, HttpStatus.OK);
+}
+ 
+  
+  
 }
