@@ -2,11 +2,12 @@ package com.touresBalon.b2c.B2Cbusinesscapabilities.dto;
 
 public class BaseProductResponse {
 	private String name;
+	private long price;
 	private String spectacle_date;
 	private String arrival_date;
 	private String departure_date;
-	private int transport_type;
-	private int spectacle_type;
+	private String transport_type;
+	private String spectacle_type;
 	private int logying_type;
 	private String description;
 	private String code;
@@ -49,19 +50,19 @@ public class BaseProductResponse {
 		this.departure_date = departure_date;
 	}
 
-	public int getTransport_type() {
+	public String getTransport_type() {
 		return transport_type;
 	}
 
-	public void setTransport_type(int transport_type) {
+	public void setTransport_type(String transport_type) {
 		this.transport_type = transport_type;
 	}
 
-	public int getSpectacle_type() {
+	public String getSpectacle_type() {
 		return spectacle_type;
 	}
 
-	public void setSpectacle_type(int spectacle_type) {
+	public void setSpectacle_type(String spectacle_type) {
 		this.spectacle_type = spectacle_type;
 	}
 
@@ -113,5 +114,12 @@ public class BaseProductResponse {
 		this.target_city = target_city;
 	}
 
+	public long getPrice() {
+		return price;
+	}
+	
+	public void setPrice(long price) {
+		this.price = price;
+	}
 
 }

@@ -23,10 +23,10 @@ public class ProductMapper implements IProductMapper {
 		productResponse.setName(productInfoResponse.getName());
 		productResponse.setSource_city(productInfoResponse.getSource_city()!=0 ? "Bogota":"N/A");
 		productResponse.setSpectacle_date(productInfoResponse.getSpectacle_date().toString());
-		productResponse.setSpectacle_type(productInfoResponse.getSpectacle_type());
+		productResponse.setSpectacle_type(productInfoResponse.getSpectacle_type()==1?"deportes":"no definido");
 		productResponse.setTarget_city(productInfoResponse.getTarget_city()!=0 ? "Medellin":"N/A");
-		productResponse.setTransport_type(productInfoResponse.getTransport_type());
-		
+		productResponse.setTransport_type(productInfoResponse.getTransport_type()==1?"aéreo":"");
+		productResponse.setPrice(productInfoResponse.getPrice());
 		return productResponse;
 	}
 
@@ -45,9 +45,10 @@ public class ProductMapper implements IProductMapper {
 			productResponse.setName(productInfoResponse.getName());
 			productResponse.setSource_city(productInfoResponse.getSource_city()!=0 ? "Bogota":"N/A");
 			productResponse.setSpectacle_date(productInfoResponse.getSpectacle_date().toString());
-			productResponse.setSpectacle_type(productInfoResponse.getSpectacle_type());
+			productResponse.setSpectacle_type(productInfoResponse.getSpectacle_type()==1?"deportes":"no definido");
 			productResponse.setTarget_city(productInfoResponse.getTarget_city()!=0 ? "Medellin":"N/A");
-			productResponse.setTransport_type(productInfoResponse.getTransport_type());
+			productResponse.setTransport_type(productInfoResponse.getTransport_type()==1?"aéreo":"");
+			productResponse.setPrice(productInfoResponse.getPrice());
 			productList.add(productResponse);
 			
 		}

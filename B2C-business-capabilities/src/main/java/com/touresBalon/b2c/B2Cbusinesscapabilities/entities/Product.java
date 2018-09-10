@@ -2,29 +2,46 @@ package com.touresBalon.b2c.B2Cbusinesscapabilities.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-//Despues usamos JPA para la generacion de estas clases
 @Entity
+@Table(name= "PRODUCT", schema = "G_USUARIO")
 public class Product {
 	
 	 	@Id
 	    @GeneratedValue(strategy=GenerationType.AUTO)
+	 	@Column(name = "ID")
 	    private Long id;
+	 	@Column(name = "NAME")
 	    private String name;
+		@Column(name = "PRICE")
+	    private Long price;
+	 	@Column(name = "SPECTACLE_DATE")
 	    private Date spectacle_date;
+	 	@Column(name = "ARRIVAL_DATE")
 	    private Date arrival_date;
+	 	@Column(name = "DEPARTURE_DATE")
 	    private Date departure_date;
+	 	@Column(name = "TRANSPORT_TYPE")
 		private int transport_type;
+	 	@Column(name = "SPECTACLE_TYPE")
 		private int spectacle_type;
+	 	@Column(name = "LOGYING_TYPE")
 		private int logying_type;
+	 	@Column(name = "DESCRIPTION")
 		private String description;
+	 	@Column(name = "CODE")
 		private String code;
+	 	@Column(name = "IMAGE_REF")
 		private String image_ref;
+	 	@Column(name = "SOURCE_CITY")
 		private int source_city;
+	 	@Column(name = "TARGET_CITY")
 		private int target_city;
 		
 		public Product() {
@@ -131,6 +148,12 @@ public class Product {
 			this.target_city = target_city;
 		}
 		
+		public Long getPrice() {
+			return price;
+		}
 		
+		public void setPrice(Long price) {
+			this.price = price;
+		}
 
 }
