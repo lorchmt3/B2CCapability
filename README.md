@@ -2,9 +2,9 @@
 
 Servicio contiene operaciones con los productos
 
-# Firmas del producto
+## Firmas del producto
 
-# Firma búsqueda de productos (..../b2c/api/getProductList)
+## Firma búsqueda de productos (..../b2c/api/getProductList)
 
 1.  Se filtra por nombre o descripcion
 
@@ -22,7 +22,7 @@ Los campos "nameProduct" y "description" son opcionales
 	"filtered" : false
 }
 
-# Firma búsqueda de producto (..../b2c/api/getProduct)
+## Firma búsqueda de producto (..../b2c/api/getProduct)
 
 1. 
 {
