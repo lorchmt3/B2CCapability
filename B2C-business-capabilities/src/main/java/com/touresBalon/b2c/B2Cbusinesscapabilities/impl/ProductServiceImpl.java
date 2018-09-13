@@ -2,6 +2,7 @@ package com.touresBalon.b2c.B2Cbusinesscapabilities.impl;
 
 import java.util.List;
 
+import org.hibernate.annotations.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,15 +27,20 @@ public class ProductServiceImpl implements IProductService {
 	public BaseProductResponse findProductById(FindProductRequest request) {
 //		ValidateOTP validateOTPRequest = otpMapper.buildValidateOTPRequest(bankOTPValidationRequest);
 //		Product productResponse = otpConsumer.consumeProductConsult(request);
-		Product productResponse = otpConsumer.getOne(request.getIdProduct());
+		Product productResponse = otpConsumer.findById(request.getIdProduct());
 		return otpMapper.buildProductResponse(productResponse);
 	}
 
 	@Override
-	public List<BaseProductResponse> findAllProducts() {
-		
-//		List<Product> productsList = otpConsumer.consumeProductListConsult();
-		List<Product> productsList = otpConsumer.findAll();
+	public List<BaseProductResponse> findAllProducts(FindProductRequest request) {
+		List<Product> productsList;
+		if(request.isFiltered()) {
+//			Sort sort;
+			 productsList = otpConsumer.findByNameAndDescription("%"+request.getNameProduct()+"%", "%"+request.getDescription()+"%");
+//			 productsList = otpConsumer.f;
+		}else {
+			 productsList = otpConsumer.findAll();
+		}
 		
 		return otpMapper.buildProductListResponse(productsList);
 	}

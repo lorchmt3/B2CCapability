@@ -7,7 +7,7 @@ import com.touresBalon.b2c.B2Cbusinesscapabilities.dto.FindProductRequest;
 
 public interface IProductService {
 	BaseProductResponse findProductById (FindProductRequest request);
-	List<BaseProductResponse> findAllProducts();
+	List<BaseProductResponse> findAllProducts(FindProductRequest request);
 	
 
 }

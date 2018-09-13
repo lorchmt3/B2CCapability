@@ -14,6 +14,7 @@ public class BaseProductResponse {
 	private String image_ref;
 	private String source_city;
 	private String target_city;
+	private long id;
 	
 	public BaseProductResponse() {
 	}
@@ -120,6 +121,14 @@ public class BaseProductResponse {
 	
 	public void setPrice(long price) {
 		this.price = price;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

@@ -1,14 +1,16 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.dto;
 
 public class FindProductRequest {
-	private String idProduct;
+	private long idProduct;
 	private String nameProduct;
+	private String description;
+	private boolean filtered;
 	
 	public FindProductRequest() {
 		
 	}
 	
-	public String getIdProduct() {
+	public long getIdProduct() {
 		return idProduct;
 	}
 	
@@ -16,12 +18,28 @@ public class FindProductRequest {
 		return nameProduct;
 	}
 	
-	public void setIdProduct(String idProduct) {
+	public void setIdProduct(long idProduct) {
 		this.idProduct = idProduct;
 	}
 	
 	public void setNameProduct(String nameProduct) {
 		this.nameProduct = nameProduct;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public boolean isFiltered() {
+		return filtered;
+	}
+	
+	public void setFiltered(boolean filtered) {
+		this.filtered = filtered;
 	}
 
 }

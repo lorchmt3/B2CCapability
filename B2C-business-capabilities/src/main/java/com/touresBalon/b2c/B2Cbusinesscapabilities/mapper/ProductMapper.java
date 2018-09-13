@@ -14,6 +14,7 @@ public class ProductMapper implements IProductMapper {
 	@Override
 	public BaseProductResponse buildProductResponse(Product productInfoResponse) {
 		BaseProductResponse productResponse = new BaseProductResponse();
+		productResponse.setId(productInfoResponse.getId());
 		productResponse.setCode(productInfoResponse.getCode());
 		productResponse.setArrival_date(productInfoResponse.getArrival_date().toString());
 		productResponse.setDeparture_date(productInfoResponse.getDeparture_date().toString());
@@ -36,6 +37,7 @@ public class ProductMapper implements IProductMapper {
 		
 		for(Product productInfoResponse: productsList) {
 			BaseProductResponse productResponse = new BaseProductResponse();
+			productResponse.setId(productInfoResponse.getId());
 			productResponse.setCode(productInfoResponse.getCode());
 			productResponse.setArrival_date(productInfoResponse.getArrival_date().toString());
 			productResponse.setDeparture_date(productInfoResponse.getDeparture_date().toString());

@@ -41,8 +41,8 @@ public class ServicesController {
 	      value = "/getProductList",
 	      method = RequestMethod.POST,
 	      produces = MediaType.APPLICATION_JSON_VALUE)
-public @ResponseBody ResponseEntity<Object> getAll()  {
-	List<BaseProductResponse> productResponse = productService.findAllProducts();
+public @ResponseBody ResponseEntity<Object> getAllOrFilterProducts(@RequestBody FindProductRequest findProductRequest)  {
+	List<BaseProductResponse> productResponse = productService.findAllProducts(findProductRequest);
 	return new ResponseEntity<Object>(productResponse, HttpStatus.OK);
 }
  
