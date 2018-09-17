@@ -13,11 +13,11 @@ public class Hotel {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
- 	@Column(name = "idHotel")
+ 	@Column(name = "IDHOTEL")
 	private int idHotel;
-	@Column(name = "price")
+	@Column(name = "PRICE")
 	private float price;
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 	
 	public Hotel() {

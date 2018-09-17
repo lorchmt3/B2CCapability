@@ -13,20 +13,20 @@ public class Transport  {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
- 	@Column(name = "idTransport")
+ 	@Column(name = "IDTRANSPORT")
 	private int idTransport;
-	@Column(name = "money")
-	private float money;
-	@Column(name = "name")
+	@Column(name = "PRICE")
+	private float price;
+	@Column(name = "NAME")
 	private String name;
 	
 	public Transport() {
 	}
 
-	public Transport(int idTransport, float money, String name) {
+	public Transport(int idTransport, float price, String name) {
 		super();
 		this.idTransport = idTransport;
-		this.money = money;
+		this.price = price;
 		this.name = name;
 	}
 
@@ -38,12 +38,12 @@ public class Transport  {
 		this.idTransport = idTransport;
 	}
 
-	public float getMoney() {
-		return money;
+	public float getPrice() {
+		return price;
 	}
-
-	public void setMoney(float money) {
-		this.money = money;
+	
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public String getName() {

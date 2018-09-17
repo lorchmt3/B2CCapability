@@ -13,11 +13,11 @@ public class Entertainment {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
- 	@Column(name = "idEntertainment")
+ 	@Column(name = "IDENTERTAINMENT")
 	private int idEntertainment;
-	@Column(name = "price")
+	@Column(name = "PRICE")
 	private float price;
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 	
 	

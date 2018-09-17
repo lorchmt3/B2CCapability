@@ -18,40 +18,40 @@ public class Product  {
 	
 	 	@Id
 	    @GeneratedValue(strategy=GenerationType.AUTO)
-	 	@Column(name = "idProduct")
+	 	@Column(name = "IDPRODUCT")
 	    private int idProduct;
-	 	@Column(name = "name")
+	 	@Column(name = "NAME")
 	    private String name;
-	 	@Column(name = "description")
+	 	@Column(name = "DESCRIPTION")
 	    private String description;
-		@Column(name = "price")
+		@Column(name = "PRICE")
 	    private float price;
-	 	@Column(name = "spectacle_date")
+	 	@Column(name = "SPECTACLE_DATE")
 	    private Date spectacle_date;
-	 	@Column(name = "arrival_date")
+	 	@Column(name = "ARRIVAL_DATE")
 	    private Date arrival_date;
-	 	@Column(name = "departure_date")
+	 	@Column(name = "DEPARTURE_DATE")
 	    private Date departure_date;
 	 	
 	    @ManyToOne
-	    @JoinColumn(name = "idTransport", nullable = false)
+	    @JoinColumn(name = "IDTRANSPORT", nullable = false)
 		private Transport idTransport;
 	    @ManyToOne
-	    @JoinColumn(name = "idEntertainment", nullable = false)
+	    @JoinColumn(name = "IDENTERTAINMENT", nullable = false)
 		private Entertainment idEntertainment;
 	    @ManyToOne
-	    @JoinColumn(name = "idHotel", nullable = false)
+	    @JoinColumn(name = "IDHOTEL", nullable = false)
 		private Hotel idHotel;
 	 	
-	 	@Column(name = "code")
+	 	@Column(name = "CODE")
 		private String code;
-	 	@Column(name = "urlImage")
+	 	@Column(name = "URLIMAGE")
 		private String urlImage;
-	 	@Column(name = "source_city")
+	 	@Column(name = "SOURCE_CITY")
 		private int source_city;
-	 	@Column(name = "target_city")
+	 	@Column(name = "TARGET_CITY")
 		private int target_city;
-	 	@Column(name = "discountRate")
+	 	@Column(name = "DISCOUNTRATE")
 	    private long discountRate;
 		
 		public Product() {
