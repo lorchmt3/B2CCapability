@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.touresBalon.b2c.B2Cbusinesscapabilities.entities.Product;
 
-@Repository("PRODUCT")
+@Repository("Product")
 public interface IProductRepositoryConsumer extends JpaRepository<Product, String> {
 //	Product consumeProductConsult(FindProductRequest request);
 //
@@ -19,6 +19,6 @@ public interface IProductRepositoryConsumer extends JpaRepository<Product, Strin
     public List<Product>  findByNameAndDescription(@Param("name") String name, 
             @Param("description") String description);
 	
-	@Query("SELECT t FROM Product t where t.id = :id")
-    public Product findById(@Param("id") Long id);
+	@Query("SELECT t FROM Product t where t.idProduct = :idProduct")
+    public Product findById(@Param("idProduct") int idProduct);
 }

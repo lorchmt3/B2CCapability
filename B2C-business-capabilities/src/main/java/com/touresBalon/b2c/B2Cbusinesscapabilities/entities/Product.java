@@ -7,153 +7,195 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name= "PRODUCT", schema = "G_USUARIO")
-public class Product {
+@Table(name= "Product", schema = "dbo")
+public class Product  {
 	
 	 	@Id
 	    @GeneratedValue(strategy=GenerationType.AUTO)
-	 	@Column(name = "ID")
-	    private Long id;
-	 	@Column(name = "NAME")
+	 	@Column(name = "idProduct")
+	    private int idProduct;
+	 	@Column(name = "name")
 	    private String name;
-		@Column(name = "PRICE")
-	    private Long price;
-	 	@Column(name = "SPECTACLE_DATE")
+	 	@Column(name = "description")
+	    private String description;
+		@Column(name = "price")
+	    private float price;
+	 	@Column(name = "spectacle_date")
 	    private Date spectacle_date;
-	 	@Column(name = "ARRIVAL_DATE")
+	 	@Column(name = "arrival_date")
 	    private Date arrival_date;
-	 	@Column(name = "DEPARTURE_DATE")
+	 	@Column(name = "departure_date")
 	    private Date departure_date;
-	 	@Column(name = "TRANSPORT_TYPE")
-		private int transport_type;
-	 	@Column(name = "SPECTACLE_TYPE")
-		private int spectacle_type;
-	 	@Column(name = "LOGYING_TYPE")
-		private int logying_type;
-	 	@Column(name = "DESCRIPTION")
-		private String description;
-	 	@Column(name = "CODE")
+	 	
+	    @ManyToOne
+	    @JoinColumn(name = "idTransport", nullable = false)
+		private Transport idTransport;
+	    @ManyToOne
+	    @JoinColumn(name = "idEntertainment", nullable = false)
+		private Entertainment idEntertainment;
+	    @ManyToOne
+	    @JoinColumn(name = "idHotel", nullable = false)
+		private Hotel idHotel;
+	 	
+	 	@Column(name = "code")
 		private String code;
-	 	@Column(name = "IMAGE_REF")
-		private String image_ref;
-	 	@Column(name = "SOURCE_CITY")
+	 	@Column(name = "urlImage")
+		private String urlImage;
+	 	@Column(name = "source_city")
 		private int source_city;
-	 	@Column(name = "TARGET_CITY")
+	 	@Column(name = "target_city")
 		private int target_city;
+	 	@Column(name = "discountRate")
+	    private long discountRate;
 		
 		public Product() {
 		}
-		
-		
-		public Product(Long id, String name, Date spectacle_date, Date arrival_date, Date departure_date,
-				int transport_type, int spectacle_type, int logying_type, String description, String code,
-				String image_ref, int source_city, int target_city) {
+
+		public Product(int idProduct, String name, float price, Date spectacle_date, Date arrival_date,
+				Date departure_date, Transport transport, Entertainment entertainment, Hotel hotel, String code,
+				String urlImage, int source_city, int target_city, long discountRate,String description) {
 			super();
-			this.id = id;
+			this.idProduct = idProduct;
 			this.name = name;
+			this.price = price;
 			this.spectacle_date = spectacle_date;
 			this.arrival_date = arrival_date;
 			this.departure_date = departure_date;
-			this.transport_type = transport_type;
-			this.spectacle_type = spectacle_type;
-			this.logying_type = logying_type;
-			this.description = description;
+			this.idTransport = transport;
+			this.idEntertainment = entertainment;
+			this.idHotel = hotel;
 			this.code = code;
-			this.image_ref = image_ref;
+			this.urlImage = urlImage;
 			this.source_city = source_city;
 			this.target_city = target_city;
+			this.discountRate = discountRate;
+			this.description = description;
 		}
 
-
-
-		public Long getId() {
-			return id;
+		public int getIdProduct() {
+			return idProduct;
 		}
-		public void setId(Long id) {
-			this.id = id;
+
+		public void setIdProduct(int idProduct) {
+			this.idProduct = idProduct;
 		}
+
 		public String getName() {
 			return name;
 		}
+
 		public void setName(String name) {
 			this.name = name;
 		}
-		public Date getSpectacle_date() {
-			return spectacle_date;
-		}
-		public void setSpectacle_date(Date spectacle_date) {
-			this.spectacle_date = spectacle_date;
-		}
-		public Date getArrival_date() {
-			return arrival_date;
-		}
-		public void setArrival_date(Date arrival_date) {
-			this.arrival_date = arrival_date;
-		}
-		public Date getDeparture_date() {
-			return departure_date;
-		}
-		public void setDeparture_date(Date departure_date) {
-			this.departure_date = departure_date;
-		}
-		public int getTransport_type() {
-			return transport_type;
-		}
-		public void setTransport_type(int transport_type) {
-			this.transport_type = transport_type;
-		}
-		public int getSpectacle_type() {
-			return spectacle_type;
-		}
-		public void setSpectacle_type(int spectacle_type) {
-			this.spectacle_type = spectacle_type;
-		}
-		public int getLogying_type() {
-			return logying_type;
-		}
-		public void setLogying_type(int logying_type) {
-			this.logying_type = logying_type;
-		}
-		public String getDescription() {
-			return description;
-		}
-		public void setDescription(String description) {
-			this.description = description;
-		}
-		public String getCode() {
-			return code;
-		}
-		public void setCode(String code) {
-			this.code = code;
-		}
-		public String getImage_ref() {
-			return image_ref;
-		}
-		public void setImage_ref(String image_ref) {
-			this.image_ref = image_ref;
-		}
-		public int getSource_city() {
-			return source_city;
-		}
-		public void setSource_city(int source_city) {
-			this.source_city = source_city;
-		}
-		public int getTarget_city() {
-			return target_city;
-		}
-		public void setTarget_city(int target_city) {
-			this.target_city = target_city;
-		}
-		
-		public Long getPrice() {
+
+		public float getPrice() {
 			return price;
 		}
-		
-		public void setPrice(Long price) {
+
+		public void setPrice(float price) {
 			this.price = price;
 		}
 
+		public Date getSpectacle_date() {
+			return spectacle_date;
+		}
+
+		public void setSpectacle_date(Date spectacle_date) {
+			this.spectacle_date = spectacle_date;
+		}
+
+		public Date getArrival_date() {
+			return arrival_date;
+		}
+
+		public void setArrival_date(Date arrival_date) {
+			this.arrival_date = arrival_date;
+		}
+
+		public Date getDeparture_date() {
+			return departure_date;
+		}
+
+		public void setDeparture_date(Date departure_date) {
+			this.departure_date = departure_date;
+		}
+
+		public Transport getTransport() {
+			return idTransport;
+		}
+
+		public void setTransport(Transport transport) {
+			this.idTransport = transport;
+		}
+
+		public Entertainment getEntertainment() {
+			return idEntertainment;
+		}
+
+		public void setEntertainment(Entertainment entertainment) {
+			this.idEntertainment = entertainment;
+		}
+
+		public Hotel getHotel() {
+			return idHotel;
+		}
+
+		public void setHotel(Hotel hotel) {
+			this.idHotel = hotel;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getUrlImage() {
+			return urlImage;
+		}
+
+		public void setUrlImage(String urlImage) {
+			this.urlImage = urlImage;
+		}
+
+		public int getSource_city() {
+			return source_city;
+		}
+
+		public void setSource_city(int source_city) {
+			this.source_city = source_city;
+		}
+
+		public int getTarget_city() {
+			return target_city;
+		}
+
+		public void setTarget_city(int target_city) {
+			this.target_city = target_city;
+		}
+
+		public long getDiscountRate() {
+			return discountRate;
+		}
+
+		public void setDiscountRate(long discountRate) {
+			this.discountRate = discountRate;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+		
 }

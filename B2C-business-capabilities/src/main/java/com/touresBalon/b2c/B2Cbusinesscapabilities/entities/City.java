@@ -1,7 +1,34 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.entities;
 
-public class City {
-	public City() {
-		// TODO Auto-generated constructor stub
+public enum City {
+	
+	BOGOTA(1,"Bogotá",Country.COLOMBIA),
+	BUENOS_AIRES(1,"Buenos Aires",Country.ARGENTINA),
+	GUAD(1,"Guadalajara",Country.MEXICO);
+	
+	private int idCity;
+	
+	private String city;
+	
+	private Country country;
+
+	private City(int idCity, String city, Country country) {
+		this.idCity = idCity;
+		this.city = city;
+		this.country = country;
 	}
+
+	public int getIdCity() {
+		return idCity;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+	
+	
 }

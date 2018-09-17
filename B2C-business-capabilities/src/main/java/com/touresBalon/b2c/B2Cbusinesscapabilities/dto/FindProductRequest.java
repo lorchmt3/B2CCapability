@@ -1,7 +1,7 @@
 package com.touresBalon.b2c.B2Cbusinesscapabilities.dto;
 
 public class FindProductRequest {
-	private long idProduct;
+	private int idProduct;
 	private String nameProduct;
 	private String description;
 	private boolean filtered;
@@ -10,7 +10,7 @@ public class FindProductRequest {
 		
 	}
 	
-	public long getIdProduct() {
+	public int getIdProduct() {
 		return idProduct;
 	}
 	
@@ -18,7 +18,7 @@ public class FindProductRequest {
 		return nameProduct;
 	}
 	
-	public void setIdProduct(long idProduct) {
+	public void setIdProduct(int idProduct) {
 		this.idProduct = idProduct;
 	}
 	
