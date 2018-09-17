@@ -3,8 +3,8 @@ package com.touresBalon.b2c.B2Cbusinesscapabilities.entities;
 public enum City {
 	
 	BOGOTA(1,"Bogotá",Country.COLOMBIA),
-	BUENOS_AIRES(1,"Buenos Aires",Country.ARGENTINA),
-	GUAD(1,"Guadalajara",Country.MEXICO);
+	BUENOS_AIRES(2,"Buenos Aires",Country.ARGENTINA),
+	GUAD(3,"Guadalajara",Country.MEXICO);
 	
 	private int idCity;
 	
