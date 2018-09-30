@@ -5,7 +5,9 @@ Servicio contiene operaciones con los productos
 ## Firmas del producto
 
  Firma búsqueda de productos (..../b2c/api/getProductList)
+ 
  paginación(ejemplo-endpoint): /b2c/api/getProductList?page=0&size=4
+ 
 1.  Se filtra por nombre o descripcion
 
 
@@ -38,6 +40,7 @@ Ejemplos :
 	
 
 2. Se requiere traer todos los productos(sin filtro alguno) 
+
    paginación(ejemplo-endpoint): /b2c/api/getProductList?page=0&size=4
 
 ```json
