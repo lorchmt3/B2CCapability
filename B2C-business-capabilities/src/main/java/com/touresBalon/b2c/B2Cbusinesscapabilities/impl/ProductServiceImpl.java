@@ -35,9 +35,12 @@ public class ProductServiceImpl implements IProductService {
 	public List<BaseProductResponse> findAllProducts(FindProductRequest request) {
 		List<Product> productsList;
 		if(request.isFiltered()) {
-//			Sort sort;
-			 productsList = otpConsumer.findByNameAndDescription("%"+request.getNameProduct()+"%", "%"+request.getDescription()+"%");
-//			 productsList = otpConsumer.f;
+			String productToChange = request.getNameProduct();
+			String descriptionToChange = request.getDescription();
+			 String product = productToChange.replace('*', '%');
+			 String description = descriptionToChange.replace('*', '%');
+			 productsList = otpConsumer.findByNameAndDescription(product, description);
+//			 productsList = otpConsumer.findByNameAndDescription("%"+request.getNameProduct()+"%", "%"+request.getDescription()+"%");
 		}else {
 			 productsList = otpConsumer.findAll();
 		}
