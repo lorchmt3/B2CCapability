@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.annotations.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.touresBalon.b2c.B2Cbusinesscapabilities.consumer.IProductRepositoryConsumer;
@@ -25,24 +26,21 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	public BaseProductResponse findProductById(FindProductRequest request) {
-//		ValidateOTP validateOTPRequest = otpMapper.buildValidateOTPRequest(bankOTPValidationRequest);
-//		Product productResponse = otpConsumer.consumeProductConsult(request);
 		Product productResponse = otpConsumer.findById(request.getIdProduct());
 		return otpMapper.buildProductResponse(productResponse);
 	}
 
 	@Override
-	public List<BaseProductResponse> findAllProducts(FindProductRequest request) {
+	public List<BaseProductResponse> findAllProducts(FindProductRequest request, Pageable pageRequest) {
 		List<Product> productsList;
 		if(request.isFiltered()) {
 			String productToChange = request.getNameProduct();
 			String descriptionToChange = request.getDescription();
 			 String product = productToChange.replace('*', '%');
 			 String description = descriptionToChange.replace('*', '%');
-			 productsList = otpConsumer.findByNameAndDescription(product, description);
-//			 productsList = otpConsumer.findByNameAndDescription("%"+request.getNameProduct()+"%", "%"+request.getDescription()+"%");
+			 productsList = otpConsumer.findByNameAndDescription(product, description, pageRequest);
 		}else {
-			 productsList = otpConsumer.findAll();
+			 productsList = otpConsumer.findAllProducts(pageRequest);
 		}
 		
 		return otpMapper.buildProductListResponse(productsList);
