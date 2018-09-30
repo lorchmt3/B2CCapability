@@ -10,15 +10,35 @@ Servicio contiene operaciones con los productos
 
 {
 
-	"nameProduct" : "partido",
+	"nameProduct" : "copa*",
 	
-	"description" : "evento",
+	"description" : "copa*",
+	
+	"filtered" : true
+	
+}
+
+{
+
+	"nameProduct" : "*rey*",
+	
+	"description" : "*libertadores*",
 	
 	"filtered" : true
 	
 }
 
 Los campos "nameProduct" y "description" son opcionales
+
+ ## COMODINES
+
+Ejemplos :
+
+
+	1.1 Empieza con esta expresión: copa*
+	1.2 Termina con esta expresión: *copa
+	1.3 Cualquier valor que contenga esta expresión: *copa*
+	
 
 2. Se requiere traer todos los productos
 
