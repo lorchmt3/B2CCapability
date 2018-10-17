@@ -9,6 +9,14 @@ public class FindProductRequest implements Pageable {
 	private String description;
 	private boolean filtered;
 	
+	public FindProductRequest(int idProduct, String nameProduct, String description, boolean filtered) {
+		super();
+		this.idProduct = idProduct;
+		this.nameProduct = nameProduct;
+		this.description = description;
+		this.filtered = filtered;
+	}
+
 	public FindProductRequest() {
 		
 	}
